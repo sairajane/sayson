@@ -17,7 +17,7 @@ function sendEmail(e) {
     message:    document.getElementById("message").value.trim(),
     to_email:   "sairajanesayson@gmail.com"
   };
-  emailjs.send("service_4ifljvc", "template_1ll3s59", params)
+  emailjs.send("service_ua3lqnc", "template_1ll3s59", params)
     .then(() => {
       btn.disabled = false; btn.classList.remove("loading");
       feedback.textContent = "✓ Message sent! I'll get back to you soon.";
