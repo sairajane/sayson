@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Saira Jane Sayson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+  <button class="lightbox-nav lb-prev" onclick="lbNav(-1,event)">&#x2039;</button>
+  <button class="lightbox-nav lb-next" onclick="lbNav(1,event)">&#x203a;</button>
+  <div class="lightbox-inner">
+    <img id="lbImg" src="" alt=""/>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="topnav">
+  <div class="nav-brand" onclick="showSection('hero')">Saira Jane <span>Sayson</span></div>
+  <div class="nav-links">
+    <a href="#" class="active" data-section="hero" onclick="nav(event,'hero')">Home</a>
+    <a href="#" data-section="about" onclick="nav(event,'about')">About</a>
+    <a href="#" data-section="skills" onclick="nav(event,'skills')">Skills</a>
+    <div class="nav-dd" id="projectsDD">
+      <button class="nav-dd-btn" onclick="toggleDD()">Projects <span class="nav-dd-arrow">&#x25b2;</span></button>
+      <div class="nav-dd-menu">
+        <a href="#" onclick="navDD(event,'projects')">View All Projects</a>
+      </div>
+    </div>
+    <a href="#" data-section="gallery" onclick="nav(event,'gallery')">Gallery</a>
+    <a href="#" data-section="contact" onclick="nav(event,'contact')">Contact</a>
+    <a href="#" data-section="unfinished" onclick="nav(event,'unfinished')">Unfinished</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="active">
+  <div class="hero-line"></div>
+  <div class="hero-bg-text">CPE</div>
+  <div class="hero-content">
+    <p class="tag">Portfolio &middot; 2026</p>
+    <h1>Saira Jane Sayson</h1>
+    <div class="hero-sub">Computer Engineering Student</div>
+    <div class="typed-wrap"><span id="typed"></span><span id="cursor">|</span></div>
+    <div class="hero-btns">
+      <button class="btn" onclick="showSection('projects')">View My Work</button>
+      <button class="btn btn-ghost" onclick="showSection('contact')">Get In Touch</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-pad">
+    <div class="about-inner">
+      <p class="tag">Who I Am</p>
+      <h2>About Me</h2>
+      <div class="section-line"></div>
+      <div class="about-avatar-wrap">
+        <img src="13.jpg" alt="Saira Jane Sayson" class="about-img"/>
+      </div>
+      <h3 class="about-role">First-Year CPE Student</h3>
+      <p>A driven Computer Engineering student at the <strong>University of Bohol</strong>, navigating the intersection of hardware and software. Eager to build, learn, and grow in the field of engineering.</p>
+      <div class="chips">
+        <span class="chip">CPE Student</span>
+        <span class="chip">Univ. of Bohol</span>
+        <span class="chip">1st Year</span>
+        <span class="chip">Philippines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<!-- ═══════════════════════════════════════════════
+     TO UPDATE SKILLS: Edit the skill-card blocks below.
+     Change the name, percentage number, and the style="width:XX%"
+     on the .fill div to match.
+     Copy a block to add more skills.
+════════════════════════════════════════════════ -->
+<section id="skills">
+  <div class="section-pad">
+    <div class="skills-inner">
+      <p class="tag">What I Know</p>
+      <h2>My Skills</h2>
+      <div class="section-line" style="margin-bottom:48px;"></div>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <label>Hardware <span>15%</span></label>
+          <div class="bar"><div class="fill" style="width:15%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <label>Wiring <span>20%</span></label>
+          <div class="bar"><div class="fill" style="width:20%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <label>Coding <span>25%</span></label>
+          <div class="bar"><div class="fill" style="width:25%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <label>Sleep <span>10%</span></label>
+          <div class="bar"><div class="fill" style="width:10%"></div></div>
+        </div>
+
+        <!-- ═══ ADD A NEW SKILL: Copy the block below and fill in your values ═══
+        <div class="skill-card">
+          <label>Skill Name <span>50%</span></label>
+          <div class="bar"><div class="fill" style="width:50%"></div></div>
+        </div>
+        ═══ END ═══ -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-pad">
+    <p class="tag">What I Built</p>
+    <h2>My Projects</h2>
+    <div class="section-line" style="margin-bottom:40px;"></div>
+    <div class="projects-grid">
+
+      <!-- ═══════════════════════════════════════════════
+           PROJECT CARD — Copy this block to add a new project
+           1. Put your image in the gallery/ folder
+           2. Change src="gallery/YOUR-IMAGE.jpg"
+           3. Update the title, category, description, and link
+      ════════════════════════════════════════════════ -->
+      <div class="project-card">
+        <img class="project-card-img" src="gallery/amssi.png" alt="AMSSI Website"/>
+        <div class="project-card-body">
+          <div class="project-meta">Web Development</div>
+          <h3>AMSSI Website</h3>
+          <p>Our first-year HTML project built for a real client — Advance Monitoring and Security Systems, Inc. The website features a public facing page and an admin panel where the client can update content. A full stack experience built from scratch as first-year CPE students.</p>
+          <div class="project-card-footer">
+            <a class="btn-sm" href="https://amssi.netlify.app/" target="_blank">View Live →</a>
+          </div>
+        </div>
+      </div>
+      <!-- END PROJECT CARD -->
+
+      <!-- ═══ ADD YOUR NEXT PROJECT BELOW THIS LINE ═══
+
+      <div class="project-card">
+        <img class="project-card-img" src="gallery/YOUR-IMAGE.jpg" alt="Your Project Name"/>
+        <div class="project-card-body">
+          <div class="project-meta">Category Here</div>
+          <h3>Project Title Here</h3>
+          <p>Description of your project here.</p>
+          <div class="project-card-footer">
+            <a class="btn-sm" href="https://your-link.com" target="_blank">View Live →</a>
+          </div>
+        </div>
+      </div>
+
+      ═══ END — keep adding more blocks above this line ═══ -->
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-pad">
+    <p class="tag">My Journey</p>
+    <h2>Photos &amp; Experiences</h2>
+    <div class="section-line" style="margin-bottom:40px;"></div>
+    <div id="galleryGrid" class="gallery-grid">
+
+      <!-- ═══════════════════════════════════════════════
+           GALLERY PHOTO — Copy any line below to add a new photo
+           1. Put your image in the gallery/ folder
+           2. Copy one line, change the filename and alt text
+           3. The lightbox index is handled automatically!
+      ════════════════════════════════════════════════ -->
+      <div class="gallery-cell"><img src="gallery/photo1.jpg" alt="COMPESA Creative Team Intern" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo2.jpg" alt="Class with classmates" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo3.jpg" alt="Gaming setup" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo4.jpg" alt="2nd Place Certificate — Roboseum V2" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo5.jpg" alt="Team photo — Roboseum V2" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo6.jpg" alt="Hockeybot competition" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo7.jpg" alt="Group photo on camera" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo8.jpg" alt="Robot building with team" loading="lazy"/></div>
+      <div class="gallery-cell"><img src="gallery/photo9.jpg" alt="Coding session" loading="lazy"/></div>
+
+      <!-- ═══ ADD YOUR NEXT PHOTO BELOW THIS LINE ═══
+      <div class="gallery-cell"><img src="gallery/YOUR-PHOTO.jpg" alt="Description of photo" loading="lazy"/></div>
+      ═══ keep adding more lines above this comment ═══ -->
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-overlay"></div>
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="tag">Get In Touch</p>
+      <h2>Contact Me</h2>
+      <div class="contact-line"></div>
+      <div class="contact-info-item">
+        <div class="contact-logo-circle initials">C</div>
+        <div><div class="ci-label">Organization</div><div class="ci-value">Compesa</div></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-logo-circle" style="font-size:18px;">&#x1f4e7;</div>
+        <div><div class="ci-label">Email</div><div class="ci-value">sairajanesayson@gmail.com</div></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-logo-circle" style="font-size:18px;">&#x1f4f1;</div>
+        <div><div class="ci-label">Phone</div><div class="ci-value">09452296290</div></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-logo-circle" style="font-size:18px;">&#x1f4cd;</div>
+        <div><div class="ci-label">Location</div><div class="ci-value">Philippines &#x1f1f5;&#x1f1ed;</div></div>
+      </div>
+    </div>
+    <div class="contact-form-col">
+      <p class="tag" style="color:var(--accent);">Send a Message</p>
+      <h2 style="color:#fff;font-size:28px;margin-bottom:8px;">Let's Talk</h2>
+      <div style="width:40px;height:2px;background:var(--accent);border-radius:99px;margin-bottom:28px;"></div>
+      <form id="contactForm" onsubmit="sendEmail(event)">
+        <input type="text" id="fromName" placeholder="Your Name" required/>
+        <input type="email" id="fromEmail" placeholder="Your Email" required/>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <div class="form-feedback" id="formFeedback"></div>
+        <button type="submit" class="send-btn" id="sendBtn">
+          <div class="spinner"></div>
+          <span class="btn-text">Send Message</span>
+        </button>
+      </form>
+    </div>
+    <div class="contact-photo-col">
+      <img src="comfest.jpg" alt="Saira Jane Sayson" class="contact-photo"/>
+      <div class="contact-photo-name">
+        <div class="pname">Saira Jane Sayson</div>
+        <div class="ptitle">Computer Engineering Student</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNFINISHED -->
+<!-- ═══════════════════════════════════════════════
+     TO UPDATE UNFINISHED PROJECTS: Edit the unfinished-card blocks below.
+     Change the category, title, description, and progress %.
+     Update both the label number and the style="width:XX%" to match.
+     Copy a block to add more.
+════════════════════════════════════════════════ -->
+<section id="unfinished">
+  <div class="section-pad">
+    <p class="tag">In Progress</p>
+    <h2>Unfinished Projects</h2>
+    <div class="section-line" style="margin-bottom:40px;"></div>
+    <div class="unfinished-grid">
+
+      <div class="unfinished-card">
+        <div class="project-meta">Coming Soon</div>
+        <h3>Title</h3>
+        <p style="margin-bottom:16px;">Placeholder for description</p>
+        <div class="progress-label"><span>Build Progress</span><span style="color:var(--accent);font-weight:700;">40%</span></div>
+        <div class="bar"><div class="progress-stripe" style="width:40%"></div></div>
+      </div>
+
+      <!-- ═══ ADD YOUR NEXT UNFINISHED PROJECT BELOW THIS LINE ═══
+
+      <div class="unfinished-card">
+        <div class="project-meta">Category Here</div>
+        <h3>Project Title</h3>
+        <p style="margin-bottom:16px;">What is this project about?</p>
+        <div class="progress-label"><span>Build Progress</span><span style="color:var(--accent);font-weight:700;">60%</span></div>
+        <div class="bar"><div class="progress-stripe" style="width:60%"></div></div>
+      </div>
+
+      ═══ END — keep adding more blocks above this line ═══ -->
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Saira Jane Sayson</div>
+  <div class="footer-copy">&copy; 2026 &middot; All Rights Reserved</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
